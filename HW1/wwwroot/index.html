@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>KONO - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+  <nav class="js-header" role="navigation">
+    <div class="nav-wrapper container">
+      <h1>175726 KONO</h1>
+    </div>
+  </nav>
+  <div class="section" id="index-banner">
+    <div class="container">
+      <button class="btn-small waves-effect waves-light" onclick="toggleCurrentPlayer()">Switch starting player</button>
+    </div>
+  </div>
+
+
+  <div class="section" id="buttons">
+    <div class="container">
+      <!--   display   -->
+      <div class="row">
+        <div class="col s12 m12 center-align">
+          <p class="js-display"></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="grid-container" id="gameButtons">
+          <div class="grid-item js-p1" data-value="0" data-x="0" data-y="0">00</div>
+          <div class="grid-item js-p1" data-value="1" data-x="0" data-y="1">01</div>
+          <div class="grid-item js-p1" data-value="2" data-x="0" data-y="2">02</div>
+          <div class="grid-item js-p1" data-value="3" data-x="0" data-y="3">03</div>
+          <div class="grid-item js-p1" data-value="4" data-x="0" data-y="4">04</div>
+          <div class="grid-item js-p1" data-value="5" data-x="1" data-y="0">10</div>
+          <div class="grid-item js-empty" data-value="6" data-x="1" data-y="1">11</div>
+          <div class="grid-item js-empty" data-value="7" data-x="1" data-y="2">12</div>
+          <div class="grid-item js-empty" data-value="8" data-x="1" data-y="3">13</div>
+          <div class="grid-item js-p1" data-value="9" data-x="1" data-y="4">14</div>
+          <div class="grid-item js-empty" data-value="10" data-x="2" data-y="0">20</div>
+          <div class="grid-item js-empty" data-value="11" data-x="2" data-y="1">21</div>
+          <div class="grid-item js-empty" data-value="12" data-x="2" data-y="2">22</div>
+          <div class="grid-item js-empty" data-value="13" data-x="2" data-y="3">23</div>
+          <div class="grid-item js-empty" data-value="14" data-x="2" data-y="4">24</div>
+          <div class="grid-item js-p2" data-value="15" data-x="3" data-y="0">30</div>
+          <div class="grid-item js-empty" data-value="16" data-x="3" data-y="1">31</div>
+          <div class="grid-item js-empty" data-value="17" data-x="3" data-y="2">32</div>
+          <div class="grid-item js-empty" data-value="18" data-x="3" data-y="3">33</div>
+          <div class="grid-item js-p2" data-value="19" data-x="3" data-y="4">34</div>
+          <div class="grid-item js-p2" data-value="20" data-x="4" data-y="0">40</div>
+          <div class="grid-item js-p2" data-value="21" data-x="4" data-y="1">41</div>
+          <div class="grid-item js-p2" data-value="22" data-x="4" data-y="2">42</div>
+          <div class="grid-item js-p2" data-value="23" data-x="4" data-y="3">43</div>
+          <div class="grid-item js-p2" data-value="24" data-x="4" data-y="4">44</div>
+        </div>
+      </div>
+    </div>
+    <footer class="js-footer">
+        <p>175726 | 2020</p>
+    </footer>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="main.js"></script>
+
+  </body>
+
+</html>
