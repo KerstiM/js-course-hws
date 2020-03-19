@@ -1,19 +1,56 @@
 import { Kono } from '../utils/kono';
-import { PLAYER_1, PLAYER_2, EMPTY_CELL, displayValues } from '../constants';
+import { PLAYER_1, PLAYER_2, EMPTY_CELL, NUMBER_OF_ROWS_COLS, displayValues } from '../constants';
 
 let konoBrain = new Kono();
 
+function setAttributes(el, options) {
+	Object.keys(options).forEach(function(attr) {
+		el.setAttribute(attr, options[attr]);
+	})
+};
+
+function playerOneBtns(i, j) {
+	return i === 0 || (i === 1 && (j === 0 || j === 4));
+}
+
+function playerTwoBtns(i, j) {
+	return i === 4 || (i === 3 && (j === 0 || j === 4));
+}
+// generate game board with initial game buttons
+for (let i = 0; i < 5; i++) {
+	for (let j = 0; j < 5; j++) {
+		let button = document.createElement("button");
+
+		if (playerOneBtns(i, j)) {
+		    setAttributes(button, {"class": "grid-btn-item js-p1", "type": "button", "data-x": i, "data-y": j, "data-value": ""});
+		} else if (playerTwoBtns(i, j)) {
+			setAttributes(button, {"class": "grid-btn-item js-p2", "type": "button", "data-x": i, "data-y": j, "data-value": ""});
+		} else {
+			setAttributes(button, {"class": "grid-btn-item js-empty", "type": "button", "data-x": i, "data-y": j, "data-value": ""});
+		}
+		document.getElementById("gameButtons").appendChild(button);
+	};
+};
+
+for (let i = 0; i < 25; i++) {
+    let button = document.getElementById("gameButtons");
+    setAttributes(button, {"data-value": i});
+    //document.getElementsByClassName("grid-btn-item").setAttribute("data-value", i);
+}
+
 let buttons = document.querySelector('#buttons');
-let display = buttons.querySelector('.js-display');
 let gameButtons = document.querySelector('#gameButtons');
-let allButtons = buttons.querySelectorAll('.grid-item');
+let allButtons = buttons.querySelectorAll('.grid-btn-item');
 let emptyCells = buttons.querySelectorAll('.js-empty');
+let display = buttons.querySelector('.js-display');
 
 let isPlayerOne = true;
 let clickSum = 0;
 
+
 // listen clicks
 for (const btn of allButtons) {
+    console.log("clicked");
     btn.onclick = getPressedButtonData;
 }
 
@@ -53,7 +90,7 @@ function getCurrentPlayerButtons(currentPlayer) {
 }
 
 function getPressedButtonData(event) {
-    let value = +(this.dataset.value);
+    let value = +(this.dataset.y) + +(this.dataset.x) * NUMBER_OF_ROWS_COLS;
     let selectedButton = allButtons[value];
     gameButtons.onclick = countClicks;
 
