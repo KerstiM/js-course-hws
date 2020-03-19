@@ -87,6 +87,7 @@ h1 {
 .js-p1:focus {
   background-color: var(--p1-dark);
   box-shadow: 0 0 4px 4px var(--p1-light);
+  border-radius: 50%;
 }
 
 .js-p2 {
@@ -107,7 +108,7 @@ h1 {
 }
 
 .js-empty {
-  border: 1px solid var(--empty-default);
+  border: 2px solid var(--empty-default);
   border-radius: 10%;
   margin: 20%;
   text-align: center;
@@ -115,7 +116,7 @@ h1 {
 }
 
 .js-empty:hover {
-  border: 3px solid var(--empty-dark);
+  border: 4px solid var(--empty-default);
 }
 
 .js-empty:focus {
@@ -124,6 +125,30 @@ h1 {
   box-shadow: 0 0 2px 4px var(--empty-dark);
 }
 
+.js-available {
+  border-radius: 10%;
+  margin: 20%;
+  text-align: center;
+  box-shadow: 0 0 2px 4px var(--empty-light);
+}
+
+.js-available.js-empty:hover {
+  border: 0;
+  border-radius: 10%;
+  margin: 20%;
+  text-align: center;
+  background-color: var(--empty-dark);
+  box-shadow: 0 0 2px 4px var(--empty-light);
+}
+
+.js-disabled {
+  pointer-events: none;
+  border: 1px solid var(--empty-default);
+  border-radius: 10%;
+  margin: 20%;
+  text-align: center;
+  background-color: transparent;
+}
 .js-display {
   background-color: rgba(89, 100, 126, 0.3);
   border-radius: 10px;
